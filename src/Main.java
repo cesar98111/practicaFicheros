@@ -1,14 +1,15 @@
-import java.io.File;
+import java.io.*;
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Scanner sc = new Scanner(System.in);
 
         File fileName = new File("data/plane.dat");
         Plane F18=null;
         String opcion = "";
-        while(!opcion.equals("Q")){
+        while(!opcion.equals("q")){
+            System.out.println("introduce una opcion");
             opcion=sc.nextLine();
             switch (opcion){
                 case "1":
@@ -32,7 +33,7 @@ public class Main {
                         System.out.println(F18);
 
                     }else{
-                        System.out.println("ya hay fichero");
+                        System.out.println(F18);
                     }
                     break;
                 case "2":
@@ -58,7 +59,11 @@ public class Main {
 
                     break;
                 case "q":
-                    System.out.println("saliendo");
+                    System.out.println("introduce nombre del archivo");
+                    System.out.println("");
+                    String name = sc.nextLine();
+                    FileSave.writeFile(name,F18);
+
                     break;
                 default:
                     System.out.println("opcion incorrecta");
