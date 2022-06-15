@@ -13,6 +13,11 @@ public class Plane {
         this.fuelLevel = fuelLevel;
         this.pilotCallSign = pilotCallSign;
         this.squadNumber = squadNumber;
+        this.flaps = true;
+        this.landingGear = false;
+        this.ejectionSystem = false;
+        this.seatOccupation = true;
+
 
         // Completa el código para cumplir con los requisitos.
     }
