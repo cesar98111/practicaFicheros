@@ -32,6 +32,7 @@ public class Plane {
 
     public void ejectionSystem() {
         ejectionSystem = !ejectionSystem;
+        setSeatOccupation(false);
     }
 
     public void setSeatOccupation(boolean pilotSeated) {
