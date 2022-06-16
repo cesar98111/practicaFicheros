@@ -5,7 +5,7 @@ public  class  FileSave  {
 
             File directorio = new File("data" );
             directorio.mkdir();
-            String fileNamee = "data/pane.dat";
+            String fileNamee = "data/plane.dat";
 
 
             FileOutputStream outputFile = new FileOutputStream(fileNamee);
