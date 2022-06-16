@@ -1,11 +1,11 @@
 import java.io.*;
 
 public  class  FileSave  {
-    public static void writeFile(String fichero, Plane F18) throws IOException {
+    public static void writeFile( Plane F18) throws IOException {
 
             File directorio = new File("data" );
             directorio.mkdir();
-            String fileNamee = "data/"+fichero+".dat";
+            String fileNamee = "data/pane.dat";
 
 
             FileOutputStream outputFile = new FileOutputStream(fileNamee);
@@ -19,10 +19,12 @@ public  class  FileSave  {
             bufferedOutput.close();
             outputFile.close();
     }
-    public static Plane readFile(String name) throws IOException, ClassNotFoundException {
+
+    public static Plane readFile() throws IOException, ClassNotFoundException {
+
             Plane a=null;
             try{
-                    String fileName = "data/"+name+".dat";
+                    String fileName = "data/plane.dat";
                     FileInputStream inputFile = new FileInputStream(fileName);
 
                     BufferedInputStream bufferedInput = new BufferedInputStream(inputFile);
@@ -40,5 +42,7 @@ public  class  FileSave  {
                     return a;
 
             }
+
+
     }
 }

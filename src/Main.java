@@ -5,13 +5,24 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
+        Plane F18 = null;
         File fileName = new File("data/plane.dat");
-        Plane F18=null;
+        if(fileName.exists()){
+           F18=FileSave.readFile();
+        }
+
+
         String opcion = "";
-        String name = "plane";
+
+
         while(!opcion.equals("q")){
             System.out.println("introduce una opcion");
-            opcion=sc.nextLine();
+            System.out.println("1. para mostrar datos del avion o para rellenar formulario de piloto");
+            System.out.println("2. para cambiar estado de los flags");
+            System.out.println("3. para subir o bajar el tred de aterrizaje");
+            System.out.println("4. para activar los sistemas de eyeccion");
+            System.out.println("5. para meter un piloto en la cabina");
+            opcion = sc.nextLine();
             switch (opcion){
                 case "1":
 
@@ -32,37 +43,63 @@ public class Main {
                         F18 = new Plane(conbustible,apodo,escuadron);
 
                         System.out.println(F18);
+                        FileSave.writeFile(F18);
 
                     }else{
-                        F18=FileSave.readFile(name);
+                        F18 = FileSave.readFile();
                     }
                     break;
+
                 case "2":
 
-                    F18.toggleFlaps();
-
-                    System.out.println(F18);
-
+                    if(fileName.exists()){
+                        F18.toggleFlaps();
+                        System.out.println(F18);
+                    }else{
+                        System.out.println("no exixte ningun avion registrado por favor registrese");
+                    }
                     break;
+
                 case "3":
 
-                    F18.toggleLandingGear();
+                    if(fileName.exists()){
+                        F18.toggleLandingGear();
+                        System.out.println(F18);
+                    }else{
+                        System.out.println("no existe ningun avion registrado por favor registrese");
+                    }
+
 
                     break;
+
                 case "4":
 
-                    F18.tejectionSystem();
+                    if(fileName.exists()){
+                        F18.tejectionSystem();
+                        System.out.println(F18);
+                    }else{
+                        System.out.println("no existe ningun avion registrado por favor registrese");
+                    }
+
 
                     break;
                 case "5":
+                    if(fileName.exists()){
+                        F18.setSeatOccupation(true);
+                        System.out.println(F18);
+                    }else{
+                        System.out.println("no existe ningun avion registrado por favor registrese");
+                    }
 
-                    F18.setSeatOccupation(true);
 
                     break;
                 case "q":
 
 
-                    FileSave.writeFile(name,F18);
+                    FileSave.writeFile(F18);
+
+                    System.out.println("cambios guardados\n" +
+                            "saliendo...");
 
                     break;
                 default:
