@@ -32,9 +32,9 @@ public class Plane implements Serializable {
         landingGear = !landingGear;
     }
 
-    public void ejectionSystem() {
+    public void tejectionSystem() {
         ejectionSystem = !ejectionSystem;
-        setSeatOccupation(false);
+
     }
 
     public void setSeatOccupation(boolean pilotSeated) {

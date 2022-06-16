@@ -1,13 +1,14 @@
 import java.io.*;
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         Scanner sc = new Scanner(System.in);
 
         File fileName = new File("data/plane.dat");
         Plane F18=null;
         String opcion = "";
+        String name = "plane";
         while(!opcion.equals("q")){
             System.out.println("introduce una opcion");
             opcion=sc.nextLine();
@@ -33,7 +34,7 @@ public class Main {
                         System.out.println(F18);
 
                     }else{
-                        System.out.println(F18);
+                        F18=FileSave.readFile(name);
                     }
                     break;
                 case "2":
@@ -50,7 +51,7 @@ public class Main {
                     break;
                 case "4":
 
-                    F18.ejectionSystem();
+                    F18.tejectionSystem();
 
                     break;
                 case "5":
@@ -59,9 +60,8 @@ public class Main {
 
                     break;
                 case "q":
-                    System.out.println("introduce nombre del archivo");
-                    System.out.println("");
-                    String name = sc.nextLine();
+
+
                     FileSave.writeFile(name,F18);
 
                     break;
