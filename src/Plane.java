@@ -32,13 +32,27 @@ public class Plane implements Serializable {
         landingGear = !landingGear;
     }
 
-    public void tejectionSystem() {
-        ejectionSystem = !ejectionSystem;
+    public void ejectionSystem() {
+
+
+            ejectionSystem = !ejectionSystem;
+            setSeatOccupation(false);
+
 
     }
 
     public void setSeatOccupation(boolean pilotSeated) {
-        seatOccupation = pilotSeated;
+
+            if(ejectionSystem){
+                System.out.println("eyectando");
+                seatOccupation = pilotSeated;
+            }else{
+                seatOccupation = pilotSeated;
+            }
+
+    }
+    public boolean getEjectionSystem(){
+        return ejectionSystem;
     }
 
     @Override

@@ -46,7 +46,7 @@ public class Main {
                         FileSave.writeFile(F18);
 
                     }else{
-                        F18 = FileSave.readFile();
+                        System.out.println(F18);
                     }
                     break;
 
@@ -75,7 +75,7 @@ public class Main {
                 case "4":
 
                     if(fileName.exists()){
-                        F18.tejectionSystem();
+                        F18.ejectionSystem();
                         System.out.println(F18);
                     }else{
                         System.out.println("no existe ningun avion registrado por favor registrese");
@@ -85,8 +85,13 @@ public class Main {
                     break;
                 case "5":
                     if(fileName.exists()){
-                        F18.setSeatOccupation(true);
-                        System.out.println(F18);
+                        if(!F18.getEjectionSystem()){
+                            F18.setSeatOccupation(true);
+                            System.out.println(F18);
+                        }else{
+                            System.out.println("no podemos meter un piloto el sistema de eyeccion esta activado");
+                        }
+
                     }else{
                         System.out.println("no existe ningun avion registrado por favor registrese");
                     }

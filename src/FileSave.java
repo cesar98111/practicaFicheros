@@ -32,7 +32,7 @@ public  class  FileSave  {
 
                      a =(Plane) objectInput.readObject();
                     while(true){
-                            System.out.println(a);
+
                             a = (Plane) objectInput.readObject();
                     }
 
